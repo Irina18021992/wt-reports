@@ -1,0 +1,21 @@
+{
+  "clients": {
+    "watch-therapy": {
+      "brand": "WATCH THERAPY",
+      "reports": [
+        {
+          "folder": "wt-2026-08-sdev",
+          "title": "WATCH THERAPY — Июль — август 2026",
+          "period": "Июль — август 2026",
+          "generated": "2026-08-24"
+        },
+        {
+          "folder": "wt-2026-07-hanti",
+          "title": "WATCH THERAPY — Июнь — июль 2026",
+          "period": "Июнь — июль 2026",
+          "generated": "2026-07-22"
+        }
+      ]
+    }
+  }
+}

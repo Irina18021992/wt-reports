@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Архив отчётов</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22 width=%2232%22 height=%2232%22 role=%22img%22 aria-label=%22Watch Therapy%22%3E %3Crect x=%220%22 y=%220%22 width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231F2940%22/%3E %3Ccircle cx=%2216%22 cy=%2216%22 r=%229.4%22 fill=%22none%22 stroke=%22%23C28A0E%22 stroke-width=%222.4%22/%3E %3Cline x1=%2216%22 y1=%228.2%22 x2=%2216%22 y2=%2210%22 stroke=%22%23C28A0E%22 stroke-width=%221.6%22 stroke-linecap=%22round%22/%3E %3Cline x1=%2223.8%22 y1=%2216%22 x2=%2222%22 y2=%2216%22 stroke=%22%23C28A0E%22 stroke-width=%221.6%22 stroke-linecap=%22round%22/%3E %3Cline x1=%2216%22 y1=%2223.8%22 x2=%2216%22 y2=%2222%22 stroke=%22%23C28A0E%22 stroke-width=%221.6%22 stroke-linecap=%22round%22/%3E %3Cline x1=%228.2%22 y1=%2216%22 x2=%2210%22 y2=%2216%22 stroke=%22%23C28A0E%22 stroke-width=%221.6%22 stroke-linecap=%22round%22/%3E %3Cline x1=%2216%22 y1=%2216%22 x2=%2221%22 y2=%2210.6%22 stroke=%22%23C28A0E%22 stroke-width=%221.9%22 stroke-linecap=%22round%22/%3E %3Cline x1=%2216%22 y1=%2216%22 x2=%2211.4%22 y2=%2211.8%22 stroke=%22%23C28A0E%22 stroke-width=%221.9%22 stroke-linecap=%22round%22/%3E %3Ccircle cx=%2216%22 cy=%2216%22 r=%221.5%22 fill=%22%23C28A0E%22/%3E %3C/svg%3E">
+<style>
+/* tokens */ /* ============================================================
+   tokens.css — дизайн-токены отчёта · «Editorial Atelier»
+   Референс hanti.pro: тёплая бронза + графит + бумага, серифный
+   дисплей, много воздуха (японское «ма»). Единственная точка
+   смены облика (приёмка §6): меняем вид → правим ТОЛЬКО этот файл.
+   Компонентные правила (.report/.kpi/...) — в <style> шаблона.
+   Шрифты — СИСТЕМНЫЕ (Hanti для кириллицы фактически = Georgia,
+   т.к. у Fraunces нет кириллицы). Ноль внешних запросов (§7).
+   Контраст всех текстовых цветов проверен на AA.
+   ============================================================ */
+:root{
+  /* ===== Бронза (акцент) ===== */
+  --accent:#8B6F47;          /* ДЕКОР: линии, шкалы, плашки-фон, крупный текст */
+  --accent-text:#7A5F3C;     /* мелкий бронзовый ТЕКСТ (метки, номера, ссылки) — AA 5.5:1 */
+  --accent-strong:#634A2D;   /* тёмная бронза (ховер/нажатие, акцент на тинте) */
+  --accent-tint:#F5EFE5;     /* бледная бронза (фон-подложка) */
+  --champagne:#C9A86B;       /* ДЕКОР ТОЛЬКО (никогда не текст) */
+  --champagne-tint:#F7F1E1;
+
+  /* ===== Поверхности и чернила ===== */
+  --paper:#F7F5F0;           /* фон страницы — тёплая бумага */
+  --paper-2:#EFEBE2;         /* состаренная бумага (подложки) */
+  --card:#FFFFFF;            /* карточки */
+  --ink:#1A1A1C;             /* графит (заголовки/текст), НЕ чистый чёрный */
+  --ink-2:#4A4744;           /* вторичный текст */
+  --ink-3:#6B6660;           /* приглушённый текст, метки — AA 5.2:1 */
+  --ink-on-dark:#F7F5F0;     /* текст на тёмном */
+
+  /* ===== Линии ===== */
+  --line:rgba(26,26,28,.09);       /* тонкие разделители */
+  --line-strong:rgba(26,26,28,.14);/* заметные границы */
+
+  /* ===== Семантика (приглушённая «земля», не SaaS-кислота) ===== */
+  --good:#2F6B4A;  --good-bg:#E6F0E9;   /* рост/успех — AA 5.8:1 */
+  --warn:#8A5710;  --warn-bg:#FAF1E1;   /* внимание (затемнён до AA) */
+  --danger:#A83B2D; --danger-bg:#F7E5E2;
+  --info:#4A5C6B;  --info-bg:#E5EBF0;
+
+  /* ===== Данные (максимум 5 цветов на график) ===== */
+  --data-1:#8B6F47;  --data-2:#C9A86B;  --data-3:#7B9A7E;  --data-4:#B17A55;  --data-5:#4A4744;
+
+  /* ===== Типографика (системные стеки) ===== */
+  --font-display:Georgia,'Times New Roman','PT Serif',serif;                              /* серифный дисплей — как кириллица Hanti */
+  --font-body:-apple-system,BlinkMacSystemFont,'SF Pro Text',Inter,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',Menlo,monospace;
+
+  --fs-display:clamp(38px,5.2vw,60px); /* период в hero */
+  --fs-h2:clamp(24px,3vw,34px);        /* заголовки секций */
+  --fs-h3:19px;                        /* подзаголовки/карточки */
+  --fs-lead:clamp(19px,2.2vw,25px);    /* серифная пул-цитата */
+  --fs-body:16px;  --fs-sm:14px;  --fs-label:12.5px;  --fs-mono:13.5px;
+
+  --lh-tight:1.08; --lh-heading:1.16; --lh-body:1.62;
+  --tracking-label:.14em;   /* ЗАГЛАВНЫЕ МЕТКИ */
+  --tracking-display:-.015em;
+
+  /* ===== Отступы («ма») ===== */
+  --space-xs:4px; --space-sm:8px; --space-md:16px; --space-lg:24px;
+  --space-xl:clamp(24px,3vw,44px);
+  --space-section:clamp(56px,7vw,104px); /* воздух между секциями */
+  --pad-card:24px; --pad-card-lg:clamp(28px,4vw,44px);
+
+  /* ===== Ширина колонки ===== */
+  --reading:880px;   /* центрированная читательская колонка */
+
+  /* ===== Скругления ===== */
+  --r-xs:4px; --r-sm:8px; --r-md:12px; --r-card:18px; --r-lg:24px; --r-full:9999px;
+
+  /* ===== Тени (тёплые, мягкие) ===== */
+  --shadow-sm:0 1px 2px rgba(26,26,28,.04);
+  --shadow:0 2px 16px rgba(26,26,28,.05),0 1px 3px rgba(26,26,28,.04);
+  --shadow-lg:0 12px 40px -18px rgba(26,26,28,.18);
+
+  /* ===== §11: геометрия прокрутки ===== */
+  --scroll-margin:80px;
+  --sticky-top:0px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);
+  background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;
+  padding:clamp(40px,7vw,80px) 24px}
+.wrap{max-width:var(--reading);margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:var(--fs-label);
+  letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-text);font-weight:600}
+.eyebrow::before{content:"";display:block;width:32px;height:1px;background:var(--accent)}
+h1{font-family:var(--font-display);font-weight:400;font-size:var(--fs-display);
+  line-height:var(--lh-tight);letter-spacing:var(--tracking-display);color:var(--ink);margin:16px 0 6px}
+.sub{color:var(--ink-2);margin-bottom:var(--space-xl);font-size:var(--fs-body)}
+.cl{background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);
+  box-shadow:var(--shadow);padding:var(--pad-card-lg);margin-bottom:16px}
+.cl h2{font-family:var(--font-display);font-weight:500;font-size:var(--fs-h3);color:var(--ink);
+  margin-bottom:12px}
+.cl ul{list-style:none}
+.cl li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+  padding:12px 0;border-top:1px solid var(--line)}
+.cl li:first-child{border-top:none}
+.cl a{color:var(--ink);text-decoration:none;font-weight:600;
+  border-bottom:1px solid transparent;transition:border-color .2s}
+.cl a:hover{border-bottom-color:var(--accent)}
+.cl a:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px;border-radius:4px}
+.meta{color:var(--ink-3);font-size:var(--fs-label);font-family:var(--font-mono)}
+.empty{color:var(--ink-3)}
+</style></head>
+<body><div class="wrap">
+<div class="eyebrow">SEO + GEO</div>
+<h1>Архив отчётов</h1>
+<p class="sub">Ежемесячные отчёты по продвижению · SEO + GEO</p>
+<section class="cl"><h2>WATCH THERAPY</h2><ul><li><a href="r/wt-2026-08-sdev/index.html">Июль — август 2026</a><span class="meta">сформирован 24.08.2026</span></li><li><a href="r/wt-2026-07-hanti/index.html">Июнь — июль 2026</a><span class="meta">сформирован 22.07.2026</span></li></ul></section>
+</div></body></html>
