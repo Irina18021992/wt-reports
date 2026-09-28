@@ -4,6 +4,12 @@
       "brand": "WATCH THERAPY",
       "reports": [
         {
+          "folder": "wt-2026-09-avsn",
+          "title": "WATCH THERAPY — Август — сентябрь 2026",
+          "period": "Август — сентябрь 2026",
+          "generated": "2026-09-28"
+        },
+        {
           "folder": "wt-2026-08-sdev",
           "title": "WATCH THERAPY — Июль — август 2026",
           "period": "Июль — август 2026",
